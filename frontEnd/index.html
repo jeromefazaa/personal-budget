@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Envelope Budgeting System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="top-buttons">
+            <button id="save-envelopes">Save Envelopes</button>
+            <button id="direct-login">Login</button>
+            <button id="my_account_button" style="display:none">My Account</button>
+            <button id="log_out_button" style="display:none">Logout</button>
+        </div>
+        <h1 id="big_title">Envelope Budgeting System</h1>
+        <p class="explanation">Manage your monthly income and expenses with our envelope budgeting system.</p>
+    </header>
+
+    <section class="income-expenses">
+        <div class="income">
+            <label for="monthly-income" class="input_label">Monthly Income: </label>
+            <input type="number" id="monthly-income" name="monthly-income" value="0" min="0" step="100">
+            <button type="button" class="update-income" id="update-income">Update</button>
+        </div>
+        <div class="display-income input_label">
+            <span>Monthly Income:</span>
+            <span id="display-monthly-income">0</span>
+        </div>
+        <div class="expenses input_label">
+            <span>Total Expenses: </span>
+            <span id="total-expenses">0</span>
+        </div>
+    </section>
+
+    <section class="create-envelope">
+        <h2>Create Envelope</h2>
+        <form>
+            <div>
+                <label for="envelope-name" class="input_label">Envelope Name:</label>
+                <input type="text" id="envelope-name" name="envelope-name">
+            </div>
+            <div>
+                <label for="envelope-budget" class="input_label">Budget Amount:</label>
+                <input type="number" id="envelope-budget" name="envelope-budget" min="0" step="100">
+            </div>
+            <button type="button" id="create_envelope">Create Envelope</button>
+        </form>
+    </section>
+
+    <section class="envelope-list">
+        <h2>Envelope List</h2>
+        <ul id="env_ul">
+
+
+        </ul>
+    </section>
+
+    <!-- Decision Modal: Choose Sign Up or Login -->
+    <div id="decision-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="decision-close">&times;</span>
+            <p>Please sign up or login to save envelopes.</p>
+            <button id="decision-signup">Sign Up</button>
+            <button id="decision-login">Login</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="login-close">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <div>
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div>
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="button" id="login_button">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="signup-close">&times;</span>
+            <h2>Sign Up</h2>
+            <form>
+                <div>
+                    <label for="signup-first-name">First Name:</label>
+                    <input type="text" id="signup-first-name" required>
+                </div>
+                <div>
+                    <label for="signup-last-name">Last Name:</label>
+                    <input type="text" id="signup-last-name" required>
+                </div>
+                <div>
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" required>
+                    <p id="valid_email"></p>
+                </div>
+                <div>
+                    <label for="signup-password">Password:</label>
+                    <p style="font: size 6px">For simplicity use only numbers, so you don't forget you password</p>
+                    <input type="password" id="signup-password" required>
+                    <p id="valid_password"></p>
+                </div>
+                <button type="button" id="sign_up_button">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="my_account_modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <span class="close" id="my_account_close">&times;</span>
+            <h2>My Account Information</h2>
+            <label for="first_name_edit">First Name:</label>
+            <input type="text" name="first_name_edit" id='first_name_edit' style="display: none;">
+            <p id="info_first_name"></p>
+
+            <label for="last_name_edit">Last Name:</label>
+            <input type="text" name="last_name_edit" id="last_name_edit" style="display: none;">
+            <p id="info_last_name"></p>
+
+            <label for="email_edit">Email:</label>
+            <input type="text" name="email_edit" id="email_edit" style="display: none;">
+            <p id="info_email"></p>
+
+            <label for="password_edit">Pass:</label>
+            <input type="text" name="password_edit" id="password_edit" style="display: none;">
+            <p id="info_pass"></p>
+
+            <div class="button-group">
+                <button id="my_account_edit">Edit</button>
+                <button id="my_account_save_edit" style="display: none;">Save</button>
+                <button id="my_account_cancel_edit" style="display: none;">Cancel</button>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

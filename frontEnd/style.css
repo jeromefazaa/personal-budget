@@ -1,0 +1,379 @@
+/* General styling */
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 20px;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  font-weight: 300; /* lighter body text */
+}
+
+/* Top buttons in header - no absolute positioning */
+.top-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+/* Buttons themselves */
+.top-buttons button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.top-buttons button:hover {
+  background-color: #0056b3;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.8em;
+  letter-spacing: 1px;
+  font-weight: 500; /* slightly heavier for emphasis */
+}
+
+.explanation {
+  font-size: 1.15em;
+  color: #555;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+/* Section container styling */
+section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Income and Expenses section */
+.income-expenses {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.income-expenses > div {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 10px;
+}
+
+/* Income, display-income, and expenses styling */
+.income {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.expenses,
+.display-income {
+  display: flex;
+  align-items: center;
+}
+
+.income label,
+.expenses span,
+.display-income span {
+  font-weight: 500;
+}
+
+.income label {
+  margin-right: 5px;
+}
+
+.income input {
+  width: 120px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  font-weight: 300;
+}
+
+.income input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.update-income {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.update-income:hover {
+  background-color: #0056b3;
+}
+
+/* Create Envelope Form */
+.create-envelope h2,
+.envelope-list h2 {
+  margin-top: 0;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.create-envelope form div {
+  margin-bottom: 15px;
+}
+
+.create-envelope form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.create-envelope form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
+.create-envelope form input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.create-envelope button {
+  padding: 10px 18px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.create-envelope button:hover {
+  background-color: #0056b3;
+}
+
+/* Envelope List */
+.envelope-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.envelope-list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-weight: 300;
+}
+
+.envelope-list li:last-child {
+  border-bottom: none;
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-weight: 500;
+}
+
+.modal-content form div {
+  margin-bottom: 15px;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
+.modal-content input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.modal-content button {
+  padding: 10px 18px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Center buttons in the decision pop up */
+#decision-modal .modal-content > button {
+  display: block;
+  margin: 10px auto;
+}
+
+.close {
+  color: #aaa;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Make top buttons stack if needed */
+  .top-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .income-expenses {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .income-expenses > div {
+    margin-bottom: 10px;
+    min-width: auto; /* Let them shrink further on small screens if needed */
+  }
+
+  /* Stack income label, input, and button vertically on small screens */
+  .income {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .income label {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+
+
+/* New styles for envelope list items with edit and delete buttons */
+.envelope-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-weight: 300;
+}
+
+.button-group {
+  display: flex;
+  gap: 5px;
+}
+
+.button-group button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-group button:hover {
+  background-color: #0056b3;
+}
+
+
+/* My Account Modal Button Styles */
+#my_account_modal .button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+#my_account_modal .button-group button {
+  padding: 10px 20px;   /* Larger clickable area */
+  font-size: 1rem;
+  background-color: #007BFF;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#my_account_modal .button-group button:hover {
+  background-color: #0056b3;
+}
+
+

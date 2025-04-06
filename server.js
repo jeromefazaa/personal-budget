@@ -1,11 +1,17 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const cors = require('cors');
 
 const PORT = 3000;
 
+//allowing for cors
+app.use(cors());
+
 //parsing the body into req.body
 app.use(bodyParser.json());
+
+
 
 
 app.get("/",(req,res,next)=>{
@@ -13,9 +19,15 @@ app.get("/",(req,res,next)=>{
 });
 
 
-//mounting api router to send all /api here
-const apiRouter = require("./server/api.js");
-app.use("/api", apiRouter);
+//mounting envelope router to send all /envelope here
+const envelopeRouter = require('./server/envelope');
+app.use("/envelope", envelopeRouter);
+
+
+//mounting user router to send all /user here
+const userRouter = require('./server/user');
+app.use("/user", userRouter);
+
 
 
 //error handler
