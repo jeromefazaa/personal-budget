@@ -11,12 +11,7 @@ app.use(cors());
 //parsing the body into req.body
 app.use(bodyParser.json());
 
-
-
-
-app.get("/",(req,res,next)=>{
-    res.send("Hello World");
-});
+app.use(express.static('frontEnd'));
 
 
 //mounting envelope router to send all /envelope here
