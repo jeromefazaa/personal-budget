@@ -340,6 +340,7 @@ async function editUserData() {
             editMyAccountButton.style.display = 'block';
             saveMyAccountButton.style.display = 'none';
             cancelMyAccountButton.style.display = 'none';
+            await displaySignUp();
 
         }
         else if (response.status == 500) {
