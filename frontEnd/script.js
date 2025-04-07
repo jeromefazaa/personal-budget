@@ -113,10 +113,7 @@ async function login(email, pass) {
                 pass: pass
             })
         });
-        console.log('request succesful');
         const data = await response.json();
-        console.log('data parsed');
-        console.log(data);
         if (response.status == 200) {
             thisUserId = data.user_id;
             //if the user is loged in display all the relevant data
@@ -130,11 +127,11 @@ async function login(email, pass) {
 
         }
         else if (response.status == 400) {
-            errorHandler(data.message);
+            throw new Error(data.message);
         }
         else if (response.status == 500) {
             errMessage = await response.text();
-            errorHandler(errMessage);
+            throw new Error(errMessage);
         }
     } catch (error) {
         errorHandler(error);
