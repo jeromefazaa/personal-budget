@@ -1,6 +1,7 @@
 //general structure: a user is either loged in or he is not, if he is loged in, i grab his user id from db, else i create a prompt user 
 let thisUserId = null;
 let logedIn = false;
+const apiURL = process.env.API_URl;
 
 
 
@@ -103,7 +104,7 @@ async function login(email, pass) {
     try {
         //login logic: --> get the email and pass, make a request to server, validate pass in server, if ok send back userId, and update all data, monthly income, envelopes, total expenses...
         console.log('login request');
-        const response = await fetch('http://localhost:3000/user/login', {
+        const response = await fetch(`${apiURL}/user/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -160,7 +161,7 @@ async function signup() {
             if (!isValidPass(password)) throw new Error('Invalid password, please only use numbers in your password (so you don\'t forget it!');
             if (first_name === null || last_name === null || email === null || password === null) throw new Error('Please fill out all fields');
 
-            const response = await fetch('http://localhost:3000/user', {
+            const response = await fetch(`${apiURL}/user`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -199,7 +200,7 @@ async function displaySignUp() {
     //getting all the info for my account settings
     let data;
     try {
-        const response = await fetch(`http://localhost:3000/user/${thisUserId}`);
+        const response = await fetch(`${apiURL}/user/${thisUserId}`);
         data = await response.json();
 
     } catch (error) {
@@ -296,7 +297,7 @@ async function editUserData() {
 
         let response;
         try {
-            response = await fetch('http://localhost:3000/user', {
+            response = await fetch(`${apiURL}/user`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -380,7 +381,7 @@ async function editUserData() {
 //if a user is not loged in, he will need a user id to use the service, this function will create a prompt user to generate a user id 
 async function createUser() {
     try {
-        const response = await fetch('http://localhost:3000/user');
+        const response = await fetch(`${apiURL}/user`);
         const data = await response.json();
         thisUserId = data.user_id;
         logedIn = true;
@@ -401,7 +402,7 @@ async function updateMonthlyIncome() {
     if (logedIn) {
         try {
             const newMonthlyIncome = monthlyIncomeInput.value;
-            const response = await fetch('http://localhost:3000/user/income', {
+            const response = await fetch(`${apiURL}/user/income`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -436,7 +437,7 @@ async function createEnvelope() {
         try {
             const envName = envelopeNameInput.value;
             const envBudget = envelopeBudgetInput.value;
-            const response = await fetch('http://localhost:3000/envelope', {
+            const response = await fetch(`${apiURL}/envelope`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -497,7 +498,7 @@ async function editEnvelope(envelope_id) {
     //getting the envelope info and displaying it
     let data;
     try {
-        const response = await fetch(`http://localhost:3000/envelope/${envelope_id}`);
+        const response = await fetch(`${apiURL}/envelope/${envelope_id}`);
         data = await response.json();
     } catch (error) {
         errorHandler(error);
@@ -537,7 +538,7 @@ async function editEnvelope(envelope_id) {
             const budget = newBudget_input.value;
 
             //making the put request
-            const response = await fetch(`http://localhost:3000/envelope/${envelope_id}/?name=${name}&budget=${budget}`, {
+            const response = await fetch(`${apiURL}/envelope/${envelope_id}/?name=${name}&budget=${budget}`, {
                 method: 'PUT'
             });
 
@@ -666,7 +667,7 @@ async function editEnvelope(envelope_id) {
 
 async function deleteEnvelope(envelope_id) {
     try {
-        const response = await fetch(`http://localhost:3000/envelope/${envelope_id}`, {
+        const response = await fetch(`${apiURL}/envelope/${envelope_id}`, {
             method: 'DELETE'
         });
         if (response.ok) {
@@ -688,7 +689,7 @@ async function deleteEnvelope(envelope_id) {
 
 async function getAllUserEnvelope() {
     try {
-        const response = await fetch(`http://localhost:3000/envelope/user/${thisUserId}`);
+        const response = await fetch(`${apiURL}/envelope/user/${thisUserId}`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -761,14 +762,14 @@ async function displayEnvelope(envelope) {
 
 //list monthly income in the DOM
 async function displayMonthlyIncome() {
-    const response = await fetch(`http://localhost:3000/user/${thisUserId}/income`);
+    const response = await fetch(`${apiURL}/user/${thisUserId}/income`);
     const data = await response.json();
     const income = data.income;
     monthlyIncomeDisplay.textContent = ` $${income}`;
 }
 
 async function displayTotalExpense() {
-    const response = await fetch(`http://localhost:3000/user/${thisUserId}/expenses`);
+    const response = await fetch(`${apiURL}/user/${thisUserId}/expenses`);
     const data = await response.json();
     const expenses = data.total_expenses;
     totalExpensesDisplay.textContent = ` $${expenses}`;
