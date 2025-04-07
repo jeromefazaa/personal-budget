@@ -11,7 +11,7 @@ app.use(cors());
 //parsing the body into req.body
 app.use(bodyParser.json());
 
-app.use(express.static('frontEnd'));
+app.use(express.static('public'));
 
 
 //mounting envelope router to send all /envelope here
