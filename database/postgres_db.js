@@ -1,12 +1,12 @@
-
-const  Pool  = require('pg').Pool;
+const { Pool } = require('pg');
 const pool = new Pool({
-    user: "jeromefazaa",
-    host: "localhost",
-    port: 5432,
-    database: "Envelope"
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
+module.exports = pool;
 
 
 module.exports = pool;
