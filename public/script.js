@@ -1,7 +1,7 @@
 //general structure: a user is either loged in or he is not, if he is loged in, i grab his user id from db, else i create a prompt user 
 let thisUserId = null;
 let logedIn = false;
-const apiURL = process.env.API_URl;
+const apiURL = API_URL;
 
 
 
