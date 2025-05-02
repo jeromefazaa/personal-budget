@@ -212,6 +212,7 @@ async function displaySignUp() {
 
     //setting local storage variables to automatically log user in again
     localStorage.setItem('hasAccount', 'true');
+    logedIn = true;
 
     localStorage.setItem('email', data.user_email);
 
